@@ -4,8 +4,7 @@
     "runArgs": [
         "--userns=keep-id"
     ],
-    "containerUser": "vscode",
-    "updateRemoteUserUID": false,
+    "containerUser": "root",
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind,Z",
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
     "customizations": {
@@ -22,5 +21,5 @@
             }
         }
     },
-    "postCreateCommand": "rustup update stable && rustup component add clippy rustfmt"
+    "postCreateCommand": "rustup component add clippy rustfmt"
 }
