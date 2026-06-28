@@ -1,0 +1,26 @@
+{
+    "name": "Rust",
+    "image": "mcr.microsoft.com/devcontainers/rust:latest",
+    "runArgs": [
+        "--userns=keep-id"
+    ],
+    "containerUser": "vscode",
+    "updateRemoteUserUID": false,
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind,Z",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "rust-lang.rust-analyzer",
+                "vadimcn.vscode-lldb",
+                "tamasfe.even-better-toml",
+                "serayuzgur.crates",
+                "fill-labs.dependi"
+            ],
+            "settings": {
+                "rust-analyzer.check.command": "clippy"
+            }
+        }
+    },
+    "postCreateCommand": "rustup update stable && rustup component add clippy rustfmt"
+}
